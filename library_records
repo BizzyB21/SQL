@@ -1,0 +1,63 @@
+create database Library_records;
+use Library_records;
+
+create table Members(
+    id INT PRIMARY KEY,
+    name VARCHAR(20)
+);
+
+create table Books(
+    id INT PRIMARY KEY,
+    title VARCHAR(30),
+    author VARCHAR(30),
+    genre VARCHAR(20),
+    year_published DATE
+);
+
+create table Borrow_records(
+    id INT PRIMARY KEY,
+    book_id INT REFERENCES Books(id),
+    member_id INT REFERENCES Members(id),
+    date_borrowed DATE,
+    date_returned DATE
+);
+
+INSERT into Members
+    VALUES
+        (1, 'Aliyah Pratts'),
+        (2, 'Paula Garcia'),
+        (3, 'Hector Garcia'),
+        (4, 'Emma Greene'),
+        (5, 'Leo Moore');
+
+INSERT into Books
+    VALUES
+        (1, 'SQL for beginners', 'Nya Hills', 'Nonfiction', '1980-03-09'),
+        (2, 'Accounting for beginners', 'Justin Hills', 'Business', '1992-09-03'),
+        (3, 'Math for Beginners', 'Kim Brown', 'Academic', '2004-06-14'),
+        (4, 'The Yellow Wallpaper', 'Charlotte Perkins Gilman', 'Gothic', '1892-01-17'),
+        (5, 'Fences', 'August Wilson', 'African Drama', '1985-08-17');
+
+INSERT into Borrow_records
+    VALUES
+        ('1', 1, 1, '2025-06-19', '2025-07-11'),
+        ('2', 2, 2, '2025-05-11', '2025-05-28'),
+        ('3', 3, 3, '2025-08-11', '2025-08-19'),
+        ('4', 4, 4, '2025-04-11', NULL),
+        ('5', 5, 5, '2025-05-10', NULL);
+
+SELECT m.name AS member_name,
+       b.title AS book_title
+FROM Borrow_records br
+JOIN Members m ON br.member_id = m.id
+JOIN Books b ON br.book_id = b.id
+WHERE m.name = 'Aliyah Pratts';
+
+SELECT m.name as member_name, b.genre as book_genre
+FROM Borrow_Records br 
+JOIN Members m ON br.member_id = m.id 
+JOIN Books b ON br.book_id = b.id 
+WHERE genre = 'Gothic'
+
+SELECT * FROM Borrow_Records
+WHERE date_returned IS NULL;
