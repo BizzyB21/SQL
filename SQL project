@@ -1,0 +1,91 @@
+Create database university_db;
+-- -- use university_db;
+-- 
+-- -- create table Students(
+-- --     id INT PRIMARY KEY,
+-- --     first_name VARCHAR(50),
+-- --     last_name VARCHAR(50),
+-- --     email VARCHAR(50),
+-- --     major VARCHAR(50)
+-- -- );
+-- 
+-- 
+-- -- create table Courses(
+-- --     id INT PRIMARY KEY,
+-- --     name VARCHAR(50),
+-- --     credits INT
+-- -- );
+-- 
+-- 
+-- -- create table Enrollments(
+-- --     id INT PRIMARY KEY,
+-- --     student_id INT REFERENCES Students(id),
+-- --     course_id INT REFERENCES Courses(id),
+-- --     enrollment_date DATE,
+-- --     grade CHAR(2)
+-- -- );
+-- 
+-- 
+-- -- INSERT INTO Students
+-- --     VALUES
+-- --         (1, 'Amy', 'Powell', 'amypowell@gail.com', 'Accounting'),
+-- --         (2, 'Agnes', 'Greene', 'agnesgreene@gmail.com', 'Civil Engineering'),
+-- --         (3, 'Ella', 'Moore', 'ellamoore@gmail.com', 'Programming'),
+-- --         (4, 'Skye', 'Renard', 'skyerenard@gmail.com', 'Finance'),
+-- --         (5, 'Gina', 'Parker', 'ginaparker@gmail.com', 'Biochemistry'),
+-- --         (6, 'Terry', 'Gomez', 'terrygomez@gmail.com', 'Physics');
+-- 
+-- 
+-- INSERT INTO Courses
+--     VALUES
+--         (1, 'Business Administration', 3),
+--         (2, 'Architecture', 4),
+--         (3, 'Data Science', 5),
+--         (4, 'Commerce', 2),
+--         (5, 'Chemical Engineering', 3),
+--         (6, 'Electrical Enginnering', 4);
+-- 
+-- 
+-- INSERT INTO Enrollments
+--     VALUES
+--         (1, 1, 1, '2025-01-2', 'A'),
+--         (2, 2, 2, '2025-02-10', 'B+'),
+--         (3, 3, 3, '2025-01-3', 'A'),
+--         (4, 4, 4, '2025-02-10', 'A+'),
+--         (5, 5, 5, '2025-01-3', 'C-'),
+--         (6, 6, 6, '2025-01-1', 'B-');
+
+-- DELETE from Enrollments WHERE id = 4;
+
+
+-- SELECT * from Students;        
+
+
+-- SELECT * from Students
+-- WHERE major = 'Programming';
+
+
+-- SELECT * from Students
+-- ORDER BY last_name, first_name;
+
+
+-- Select * From Courses
+-- where credits >= 4;
+
+
+-- Select * from Students
+-- JOIN Enrollments
+-- ON Student_id = Enrollments.Student_id;
+
+
+-- SELECT COUNT(*) FROM Students
+-- GROUP BY major;
+
+-- SELECT * FROM Students
+-- JOIN Enrollments
+-- ON Student_id = Enrollments.Student_id;
+
+-- SELECT * FROM Students
+-- JOIN Enrollments
+-- ON Student_id = Enrollments.Student_id
+-- WHERE grade = 'A';
